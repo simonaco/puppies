@@ -1,0 +1,34 @@
+<div>
+  <ul class="puppies">
+    <li *ngFor="let puppy of puppies" (click)="onSelect(puppy)" [class.selected]="puppy === selectedPuppy">
+      <button class="delete-button" (click)="deletePuppy(puppy)">Delete</button>
+      <div class="puppy-element">
+        <div class="badge">{{puppy.id}}</div>
+        <div class="name">{{puppy.name}}</div>
+        <div class="saying">{{puppy.saying}}</div>
+      </div>
+    </li>
+  </ul>
+  <div class="editarea">
+    <button (click)="enableAddMode()">Add New Puppy</button>
+    <div *ngIf="selectedPuppy">
+      <div class="editfields">
+        <div>
+          <label>id: </label>
+          <input [(ngModel)]="selectedPuppy.id" placeholder="id" *ngIf="addingPuppy" />
+          <label *ngIf="!addingPuppy" class="value">{{selectedPuppy.id}}</label>
+        </div>
+        <div>
+          <label>name: </label>
+          <input [(ngModel)]="selectedPuppy.name" placeholder="name" />
+        </div>
+        <div>
+          <label>saying: </label>
+          <input [(ngModel)]="selectedPuppy.saying" placeholder="saying" />
+        </div>
+      </div>
+      <button (click)="cancel()">Cancel</button>
+      <button (click)="save()">Save</button>
+    </div>
+  </div>
+</div>
