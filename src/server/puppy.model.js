@@ -9,7 +9,7 @@ const puppySchema = new Schema(
     saying: String
   },
   {
-    collection: 'puppies',
+    collection: 'Puppies',
     read: 'nearest'
   }
 );

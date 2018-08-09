@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
 
-const publicweb = './publicweb';
+const publicweb = './dist/puppies';
 const app = express();
 
 app.use(bodyParser.json());
